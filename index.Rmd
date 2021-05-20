@@ -1,0 +1,44 @@
+---
+title: "US Mass Shootings in 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+#get information from 'analysis.R'
+source("analysis.R")
+
+#packages
+library("dplyr")
+library("knitr")
+library("ggplot2")
+library("plotly")
+library("leaflet")
+```
+
+## Summary Information
+
+In 2018, `r number_of_mass_shootings` mass shootings occurred in the United States. `r number_of_lives_lost` lives were lost over the course of these shootings. The city of `r city_most_impacted` was impacted by shootings most as that is where there were the most individuals killed or injured. The state of `r most_shootings` had the highest number of mass shootings while the state of `r least_shootings` had the least number of mass shootings.
+[(Source)](http://www.shootingtracker.com)
+
+```{r table}
+summary(table)
+```
+
+As shown by the table, the most mass shootings on average occurred in the month of June. The state with the most mass shootings is California. A higher number of shootings also correlated with a larger number of victims, including the total number of individuals killed and injured. 
+
+## Parkland, Florida Mass Shooting
+
+One major mass shooting that occurred in the year of 2018 was in `r shootings_2018[312, "city", "state"]`, on `r shootings_2018[312, "date"]`. In this shooting, `r shootings_2018[312, "num_killed"]` were killed and `r shootings_2018[312, "num_injured"]` were injured. This shooting was caused by a former student of the school, Marjory Stoneman Douglas High School, named Nikolas Cruz. Cruz murdered `r shootings_2018[312, "num_killed"]` students from his old high school and he was 19 years old at the time of the mass shooting.
+[(Source)](https://www.nbcnews.com/news/us-news/police-respond-shooting-parkland-florida-high-school-n848101)
+
+## Map of US Mass Shootings in 2018
+
+This map gives an in-depth display of the specific mass shooting locations around the United States. The plots correlate with the number of victims (people killed and people injured) and the markers alter based on the data. 
+
+```{r map, echo=FALSE}
+mass_shooting_map
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
