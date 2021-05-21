@@ -62,8 +62,7 @@ city_most_impacted <- shootings_2018 %>%
                      lng = ~Longitude,
                      stroke = FALSE,
                      radius = ~total_victims
-                     color = "red",
-                     opacity = 0.5,
+                     color = "000000",
                      size = 15,
                      popup = marker_popups
                      )
